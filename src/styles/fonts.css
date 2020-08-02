@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Geometria';
+  src: url("../assets/fonts/Geometria/Geometria.ttf") fromat('truetype');
+}
+
+@font-face {
+  font-family: 'Geometria Light';
+  src: url("../assets/fonts/Geometria/Geometria-Light.ttf") fromat('truetype');
+}
+
+@font-face {
+  font-family: 'Geometria Bold';
+  src: url("../assets/fonts/Geometria/Geometria-Bold.ttf") fromat('truetype');
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url("../assets/fonts/MyriadPro/MyriadPro-Regular.ttf") fromat('truetype');
+}
+
+@font-face {
+  font-family: 'MyriadPro Bold';
+  src: url("../assets/fonts/MyriadPro/MyriadPro-Bold.ttf") fromat('truetype');
+}
