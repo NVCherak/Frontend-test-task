@@ -25,7 +25,7 @@ body {
   backdrop-filter: brightness(0.8);
   border-bottom: 1px solid rgba(white, 0.3);
   font-family: "Geometria";
-  font-size: .5rem;
+  font-size: 0.5rem;
 
   a {
     display: flex;
@@ -55,7 +55,7 @@ body {
     &-phone,
     &-lang {
       color: #53d0fb;
-      font-size: .7rem;
+      font-size: 0.7rem;
 
       &:hover {
         color: white;
@@ -372,17 +372,17 @@ body {
 
     &-subtext {
       padding-left: 1rem;
-      padding-top: .5rem;
+      padding-top: 0.5rem;
     }
 
-    &-title{
+    &-title {
       font-size: 4.5rem;
       font-weight: 900;
     }
 
     &-subtitle {
       font-size: 1.7rem;
-      padding-bottom: .5rem;
+      padding-bottom: 0.5rem;
     }
   }
 }
@@ -392,7 +392,7 @@ body {
   margin: 0 auto;
   padding: 3rem 0;
 
-  &__content>.subtitle {
+  &__content > .subtitle {
     margin: 0 auto;
   }
 
@@ -463,14 +463,16 @@ body {
 .button.button_aylen {
   background: #53d0fb;
   color: black;
+  outline: none;
+  border: none;
   overflow: hidden;
-  -webkit-transition: color 0.3s;
-  transition: color 0.3s;
+  -webkit-transition: color 0.3s, background 0.3s;
+  transition: color 0.3s, background 0.3s;
 }
 
 .button_aylen::before,
 .button_aylen::after {
-  content: '';
+  content: "";
   position: absolute;
   height: 100%;
   width: 100%;
@@ -500,4 +502,96 @@ body {
 .button_aylen:hover::after {
   -webkit-transition-delay: 0.175s;
   transition-delay: 0.175s;
+}
+
+.fade {
+  width: 100%;
+  backdrop-filter: brightness(0.4);
+  display: flex;
+  justify-content: center;
+}
+
+.contacts {
+  color: white;
+  justify-content: center;
+  background: url("../assets/img/macbook-air.jpg") no-repeat;
+  background-size: cover;
+
+  &__content {
+    display: flex;
+    max-width: 1000px;
+    padding: 2rem 0;
+  }
+
+  &__contacts {
+    padding: 1rem;
+    width: 30%;
+  }
+
+  &__feedback {
+    padding: 1rem;
+    width: 70%;
+  }
+
+  &__title {
+    padding: 1rem 1rem;
+  }
+
+  &__contact {
+    display: flex;
+    padding: 1rem;
+    p {
+      padding-left: 0.75rem;
+    }
+
+    &-ico {
+      width: 2rem;
+      height: 2rem;
+      filter: invert(81%) sepia(24%) saturate(6004%) hue-rotate(169deg)
+        brightness(105%) contrast(102%);
+    }
+  }
+}
+
+.feedback-form {
+  position: relative;
+  width: 100%;
+  padding: 1rem 0;
+
+  &__row {
+    display: flex;
+    margin-bottom: 1.2rem;
+  }
+
+  &__field {
+    display: block;
+    padding: 1rem;
+    margin: 0 1rem;
+    background: none;
+    outline: none;
+    border: 1px solid white;
+    color: white;
+
+    &_text {
+      width: calc(100% - 2rem);
+      height: 220px;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__control {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 1rem 3rem;
+
+    &-text {
+      width: 50%;
+      padding-left: 3rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  &__btn {
+    width: 150px;
+  }
 }
