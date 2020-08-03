@@ -1,24 +1,24 @@
 @font-face {
   font-family: 'Geometria';
-  src: url("../assets/fonts/Geometria/Geometria.ttf") fromat('truetype');
+  src: url("../assets/fonts/Geometria/Geometria.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'Geometria Light';
-  src: url("../assets/fonts/Geometria/Geometria-Light.ttf") fromat('truetype');
+  src: url("../assets/fonts/Geometria/Geometria-Light.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'Geometria Bold';
-  src: url("../assets/fonts/Geometria/Geometria-Bold.ttf") fromat('truetype');
+  src: url("../assets/fonts/Geometria/Geometria-Bold.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'MyriadPro';
-  src: url("../assets/fonts/MyriadPro/MyriadPro-Regular.ttf") fromat('truetype');
+  src: url("../assets/fonts/MyriadPro/MyriadPro-Regular.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'MyriadPro Bold';
-  src: url("../assets/fonts/MyriadPro/MyriadPro-Bold.ttf") fromat('truetype');
+  src: url("../assets/fonts/MyriadPro/MyriadPro-Bold.ttf") format('truetype');
 }

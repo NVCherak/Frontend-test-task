@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: 'MyriadPro', sans-serif;
+  font-family: "MyriadPro", "MyriadPro Bold";
 }
 
 .container {
@@ -19,13 +19,17 @@ body {
 
 .navbar {
   width: 100%;
+  position: absolute;
   height: 5rem;
-  backdrop-filter: brightness(0.85) blur(4px);
+  z-index: 30;
+  backdrop-filter: brightness(0.8);
+  border-bottom: 1px solid rgba(white, 0.5);
 
   a {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
   }
 
   .container {
@@ -42,13 +46,22 @@ body {
   }
 
   .nav__link {
-    font-size: .8rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    text-decoration: none;
     color: white;
 
-    &-phone, &-lang {
+    &-phone,
+    &-lang {
       color: #53d0fb;
+      
+      &:hover {
+        color: white;
+        transition: color 500ms ease;
+      }
+    }
+
+    &-phone {
+      margin: 0 .5rem;
     }
   }
 }
@@ -60,13 +73,216 @@ body {
   &__item {
     display: flex;
     padding: 0 1rem;
+    position: relative;
 
-    &:hover {
-      background-color: rgba(black, 0.1);
+    &-langs {
+      span {
+        color: #53d0fb;
+        display: flex;
+        align-items: center;
+        margin: 0 .3rem;
+      }
     }
   }
 
   &__link {
     height: 100%;
+
+    &:hover::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 60%;
+      height: 1px;
+      background-color: #f7b940;
+    }
+  }
+}
+
+.header {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.slider {
+  position: relative;
+  height: 50vw;
+  overflow: hidden;
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    text-align: justify;
+    padding: 0 3rem;
+    z-index: 30;
+    color: white;
+    max-width: 40%;
+
+    &-text {
+      margin: .3rem 0;
+      text-transform: uppercase;
+
+      &_bold {
+        font-family: "MyriadPro Bold";
+        font-weight: 900;
+      }
+    }
+
+    &-image {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    &-button-group {
+      margin: 2rem 0;
+      width: 100%;
+      display: flex;
+    }
+
+    &-btn {
+      width: 50%;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      border: 1px solid rgba(white, 0.4);
+
+      &:first-child::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        transform: translateX(100%);
+        transition: all 500ms ease;
+        z-index: -1;
+      }
+
+      &:last-child::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        transform: translateX(-100%);
+        transition: all 500ms ease;
+        z-index: -1;
+      }
+
+      &:hover {
+        color: black;
+
+        &::before {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  &__slide {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    height: 50vw;
+    background-color: black;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    &.active {
+      z-index: 20;
+    }
+  }
+
+  &__buttons {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+    height: 100%;
+    z-index: 25;
+  }
+
+  &__btn > img {
+    height: 3.5rem;
+  }
+
+  &__nav {
+    position: absolute;
+    display: flex;
+    bottom: 1rem;
+    z-index: 25;
+
+
+    &-item {
+      width: 5rem;
+      height: .2rem;
+      margin: 0 .5rem;
+      border-radius: 5px;
+      background-color: rgba(white, 0.4);
+      transition: background-color 500ms ease;
+
+      &.active {
+        background-color: rgba(white, 1);
+      }
+
+      &.fade {
+        background-color: rgba(white, 0.4);
+      }
+    }
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.slideInLeft {
+  animation-name: animateInLeft;
+  z-index: 20;
+}
+
+.slideInRight {
+  animation-name: animateInRight;
+  z-index: 20;
+}
+
+.slideOutLeft {
+  transform: translateX(-100%);
+}
+
+.slideOutRight {
+  transform: translateX(100%);
+}
+
+@keyframes animateInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes animateInRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
   }
 }
