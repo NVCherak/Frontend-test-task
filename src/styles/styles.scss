@@ -249,6 +249,7 @@ body {
 
 .button {
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   padding: 1rem;
@@ -291,7 +292,7 @@ body {
   }
 }
 
-main {
+.main {
   background-color: white;
 }
 
@@ -470,6 +471,7 @@ main {
   color: black;
   outline: none;
   border: none;
+  z-index: 1;
   overflow: hidden;
   -webkit-transition: color 0.3s, background 0.3s;
   transition: color 0.3s, background 0.3s;
@@ -530,12 +532,12 @@ main {
 
   &__contacts {
     padding: 1rem;
-    width: 30%;
+    width: 35%;
   }
 
   &__feedback {
     padding: 1rem;
-    width: 70%;
+    width: 65%;
   }
 
   &__title {
@@ -544,9 +546,9 @@ main {
 
   &__contact {
     display: flex;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     p {
-      padding-left: 0.75rem;
+      padding-left: 0.5rem;
     }
 
     &-ico {
@@ -576,6 +578,7 @@ main {
     outline: none;
     border: 1px solid white;
     color: white;
+    width: 30%;
 
     &_text {
       width: calc(100% - 2rem);
@@ -598,6 +601,19 @@ main {
 
   &__btn {
     width: 150px;
+
+    &.button_aylen::before {
+      background: #3f51b5;
+    }
+
+    &.button_aylen::after {
+      background: white;
+    }
+
+    &.button_aylen:hover {
+      color: black;
+      background: none;
+    }
   }
 }
 
@@ -670,6 +686,7 @@ main {
     display: inline-block;
     outline: none;
     color: #404d5b;
+    z-index: 1;
     vertical-align: bottom;
     text-decoration: none;
     white-space: nowrap;

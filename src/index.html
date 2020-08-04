@@ -46,9 +46,9 @@
     </div>
   </nav>
 
-  <header class="header">
+  <section class="header">
     <div class="container slider">
-      <div class="slider__heading">
+      <header class="slider__heading">
         <img class="slider__heading-image" src="img/frontend-science-logo.png" alt="frontend-science-logo.png">
         <h1 class="slider__heading-text slider__heading-text_bold">Frontend-разработчики</h1>
         <h1 class="slider__heading-text">должны быть в теме всего</h1>
@@ -56,7 +56,7 @@
           <a href="#" class="button slider__heading-btn">да, должны</a>
           <a href="#" class="button slider__heading-btn">конечно, должны</a>
         </div>
-      </div>
+      </header>
       <div class="slider__slide active">
         <img src="img/iceberg.jpg" alt="iceberg.jpg">
       </div>
@@ -76,9 +76,9 @@
         <div class="slider__nav-item" slide-id=2></div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main>
+  <main class="main">
     <section class="coyier container">
       <div class="coyier__heading">
         <div class="coyier__heading-content">
@@ -211,18 +211,18 @@
           </div>
           <div class="contacts__feedback">
             <h3 class="contacts__title">Напишите нам</h3>
-            <form class="feedback-form" action="/">
+            <form class="feedback-form" id="feedback-form" action="/">
               <div class="feedback-form__row">
                 <input class="feedback-form__field" type="text" id="fname" name="fname" value="ИМЯ">
                 <input class="feedback-form__field" type="text" id="phone" name="phone" value="ТЕЛЕФОН">
                 <input class="feedback-form__field" type="text" id="email" name="email" value="EMAIL">
               </div>
               <input class="feedback-form__field feedback-form__field_text" type="text" id="text" name="text" value="СООБЩЕНИЕ">
-              <div class="feedback-form__control">
-                <input class="button button_aylen feedback-form__btn" type="submit" value="Отправить">
-                <p class="feedback-form__control-text">Спасибо за сообщение!<br>Мы обязательно свяжемся с Вами.</p>
-              </div>
             </form>
+            <div class="feedback-form__control">
+              <button class="feedback-form__btn button button_aylen" type="submit" form="feedback-form" value="Отправить">Отправить</button>
+              <p class="feedback-form__control-text">Спасибо за сообщение!<br>Мы обязательно свяжемся с Вами.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -241,14 +241,16 @@
     <section class="footer">
       <div class="container">
         <div class="follow">
-          <img class="follow__ico navbar__brand-image" src="img/frontend-science-logo-colorized.png" alt="frontend-science-logo-colorized.png">
+          <img class="follow__ico navbar__brand-image" src="img/frontend-science-logo-colorized.png"
+            alt="frontend-science-logo-colorized.png">
           <div class="socials">
             <img src="img/youtube-ico.png" alt="youtube-ico.png" class="follow__ico">
             <img src="img/facebook-ico.png" alt="facebook-ico.png" class="follow__ico">
             <img src="img/twitter-ico.png" alt="twitter-ico.png" class="follow__ico">
           </div>
         </div>
-        <p class="rights">&copy; 2017 «Frontend» | сайт разработан в <a class="company" href="https://rubarbs.com/">Rubarb digital</a></p>
+        <p class="rights">&copy; 2017 «Frontend» | сайт разработан в <a class="company"
+            href="https://rubarbs.com/">Rubarb digital</a></p>
       </div>
     </section>
   </main>
