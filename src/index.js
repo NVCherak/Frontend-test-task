@@ -1,64 +1,43 @@
 import "./styles/styles.scss"
+import Slider from "./slider"
 
-document.addEventListener('DOMContentLoaded', () => {
-  const SLIDETIME = 500; //ms
+document.addEventListener('DOMContentLoaded', Slider)
 
-  const prevButton = document.querySelector('.slider__prev-btn');
-  const nextButton = document.querySelector('.slider__next-btn');
+let isScrolling = false;
 
-  const sliderNavs = [...document.querySelectorAll('.slider__nav-item')];
-  const allSlides = [...document.querySelectorAll('.slider__slide')];
-  let clickable = true;
-  let active = null;
-  let newActive = null;
+window.addEventListener("scroll", throttleScroll, false);
 
-  function initSlider() {
-    allSlides.forEach(slide =>
-      slide.setAttribute(
-        'style',
-        `transition: transform ${SLIDETIME}ms ease;
-                     animation-duration: ${SLIDETIME}ms`,
-      ),
-    );
+function throttleScroll (e) {
+  if (isScrolling == false) {
+    window.requestAnimationFrame(function () {
+      scrolling(e);
+      isScrolling = false;
+    });
   }
+  isScrolling = true;
+}
 
-  function changeSlide(forward) {
-    if (clickable) {
-      clickable = false;
-      active = document.querySelector('.active');
-      const activeSlideIndex = allSlides.indexOf(active);
-      sliderNavs[activeSlideIndex].classList.add('fade')
+document.addEventListener("DOMContentLoaded", scrolling, false);
 
-      if (forward) {
-        newActive = allSlides[(activeSlideIndex + 1) % allSlides.length];
-        active.classList.add('slideOutLeft');
-        newActive.classList.add('slideInRight', 'active');
-        sliderNavs[allSlides.indexOf(newActive)].classList.add('active')
-      } else {
-        newActive = allSlides[(activeSlideIndex - 1 + allSlides.length) % allSlides.length];
-        active.classList.add('slideOutRight');
-        newActive.classList.add('slideInLeft', 'active');
-        sliderNavs[allSlides.indexOf(newActive)].classList.add('active')
-      }
+let animItems = document.querySelectorAll(".bordered-on-scroll");
+
+function scrolling () {
+  for (let i = 0; i < animItems.length; i++) {
+    let animItem = animItems[i];
+
+    if (isFullyVisible(animItem)) {
+      animItem.classList.add("active");
+    } else {
+      animItem.classList.remove("active");
     }
   }
+}
 
-  allSlides.forEach((slide, id) => {
-    slide.addEventListener('transitionend', () => {
-      if (slide === active && !clickable) {
-        clickable = true;
-        active.className = 'slider__slide';
-        sliderNavs[id].className = 'slider__nav-item'
-      }
-    });
-  });
+const isFullyVisible = (el) => {
+  let elementBoundary = el.getBoundingClientRect();
 
-  nextButton.addEventListener('click', () => {
-    changeSlide(true);
-  });
-  prevButton.addEventListener('click', () => {
-    changeSlide(false);
-  });
+  let top = elementBoundary.top;
+  let bottom = elementBoundary.bottom;
 
-  initSlider();
-});
+  return ((top >= 0) && (bottom <= window.innerHeight));
+}
